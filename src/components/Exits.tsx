@@ -15,10 +15,10 @@ export function Exits({ state }: { state: State }) {
       </span>
 
       <div className="relative mt-4 flex flex-col items-center gap-3">
-        {/* closed bank */}
+        {/* closed bank + running man */}
         <svg
-          viewBox="0 0 80 76"
-          className="h-20 w-20"
+          viewBox="0 0 118 76"
+          className="h-20 w-auto"
           fill="none"
           stroke={accent}
           strokeWidth="1.5"
@@ -47,6 +47,30 @@ export function Exits({ state }: { state: State }) {
 
           {/* closed doors / barrier line */}
           <path d="M40 34 L40 64" strokeDasharray="3 2" opacity="0.6" />
+
+          {/* running man — runs out, fades away, loops */}
+          <g transform="translate(80, 66)">
+            <g className="exit-runner-move">
+              {/* pose A — legs apart */}
+              <g className="exit-pose-a">
+                <circle cx="0" cy="-17" r="2.8" />
+                <path d="M0 -14 L0 -5" />
+                <path d="M0 -12 L5 -8" />
+                <path d="M0 -12 L-5 -9" />
+                <path d="M0 -5 L5 1 L6 4" />
+                <path d="M0 -5 L-5 0 L-6 4" />
+              </g>
+              {/* pose B — legs crossed */}
+              <g className="exit-pose-b">
+                <circle cx="0" cy="-17" r="2.8" />
+                <path d="M0 -14 L0 -5" />
+                <path d="M0 -12 L-5 -7" />
+                <path d="M0 -12 L5 -10" />
+                <path d="M0 -5 L-2 1 L1 4" />
+                <path d="M0 -5 L2 0 L-1 4" />
+              </g>
+            </g>
+          </g>
         </svg>
 
         {/* state label */}
@@ -59,8 +83,32 @@ export function Exits({ state }: { state: State }) {
       </div>
 
       <style>{`
+        .exit-runner-move {
+          animation: exit-runner-move 2.6s linear infinite;
+        }
+        @keyframes exit-runner-move {
+          0% { transform: translateX(-8px); opacity: 0; }
+          12% { opacity: 1; }
+          65% { opacity: 1; }
+          100% { transform: translateX(30px); opacity: 0; }
+        }
+        .exit-pose-a {
+          animation: exit-pose-a 0.4s steps(1) infinite;
+        }
+        .exit-pose-b {
+          animation: exit-pose-b 0.4s steps(1) infinite;
+        }
+        @keyframes exit-pose-a {
+          0%, 49.9% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+        @keyframes exit-pose-b {
+          0%, 49.9% { opacity: 0; }
+          50%, 100% { opacity: 1; }
+        }
         @media (prefers-reduced-motion: reduce) {
           .exits * { animation: none !important; }
+          .exit-pose-b { opacity: 0; }
         }
       `}</style>
     </div>
