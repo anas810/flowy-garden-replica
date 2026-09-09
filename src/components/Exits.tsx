@@ -15,9 +15,9 @@ export function Exits({ state }: { state: State }) {
       </span>
 
       <div className="relative mt-4 flex flex-col items-center gap-3">
-        {/* closed bank */}
+        {/* closed bank with out-of-business sign */}
         <svg
-          viewBox="0 0 80 76"
+          viewBox="0 0 80 80"
           className="h-20 w-20"
           fill="none"
           stroke={accent}
@@ -29,24 +29,39 @@ export function Exits({ state }: { state: State }) {
           <path d="M8 24 L40 6 L72 24" />
           <path d="M12 24 L68 24" />
 
-          {/* cross on top — closed */}
-          <path d="M40 6 L40 16" />
-          <path d="M35 11 L45 11" />
+          {/* out of business sign */}
+          <rect
+            x="10"
+            y="27"
+            width="60"
+            height="14"
+            rx="1"
+            fill="color-mix(in srgb, var(--paper) 70%, transparent)"
+          />
+          <text
+            x="40"
+            y="37"
+            textAnchor="middle"
+            fontSize="5"
+            fontWeight="600"
+            fill={accent}
+            stroke="none"
+            style={{ letterSpacing: "-0.2px" }}
+          >
+            Out of business
+          </text>
 
           {/* architrave */}
-          <rect x="10" y="24" width="60" height="7" rx="0.5" />
+          <rect x="10" y="43" width="60" height="7" rx="0.5" />
 
           {/* columns */}
-          <rect x="18" y="34" width="6" height="30" rx="0.5" />
-          <rect x="30" y="34" width="6" height="30" rx="0.5" />
-          <rect x="44" y="34" width="6" height="30" rx="0.5" />
-          <rect x="56" y="34" width="6" height="30" rx="0.5" />
+          <rect x="18" y="52" width="6" height="20" rx="0.5" />
+          <rect x="30" y="52" width="6" height="20" rx="0.5" />
+          <rect x="44" y="52" width="6" height="20" rx="0.5" />
+          <rect x="56" y="52" width="6" height="20" rx="0.5" />
 
           {/* base */}
-          <rect x="8" y="64" width="64" height="7" rx="0.5" />
-
-          {/* closed doors / barrier line */}
-          <path d="M40 34 L40 64" strokeDasharray="3 2" opacity="0.6" />
+          <rect x="8" y="72" width="64" height="6" rx="0.5" />
         </svg>
 
         {/* state label */}
