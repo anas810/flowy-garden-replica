@@ -17,7 +17,7 @@ export function Exits({ state }: { state: State }) {
       <div className="relative mt-4 flex flex-col items-center gap-3">
         {/* closed bank with out-of-business sign */}
         <svg
-          viewBox="0 0 80 80"
+          viewBox="0 0 80 86"
           className="h-20 w-20"
           fill="none"
           stroke={accent}
@@ -25,24 +25,38 @@ export function Exits({ state }: { state: State }) {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
+          {/* branch label on top */}
+          <text
+            x="40"
+            y="5"
+            textAnchor="middle"
+            fontSize="6"
+            fontWeight="600"
+            fill={accent}
+            stroke="none"
+            style={{ letterSpacing: "0.5px" }}
+          >
+            Branch 02
+          </text>
+
           {/* pediment */}
           <path d="M8 24 L40 6 L72 24" />
           <path d="M12 24 L68 24" />
 
-          {/* out of business sign */}
+          {/* out of business sign — bigger and lower */}
           <rect
-            x="10"
-            y="27"
-            width="60"
-            height="14"
+            x="8"
+            y="34"
+            width="64"
+            height="18"
             rx="1"
             fill="color-mix(in srgb, var(--paper) 70%, transparent)"
           />
           <text
             x="40"
-            y="37"
+            y="46"
             textAnchor="middle"
-            fontSize="5"
+            fontSize="7"
             fontWeight="600"
             fill={accent}
             stroke="none"
@@ -55,13 +69,13 @@ export function Exits({ state }: { state: State }) {
           <rect x="10" y="43" width="60" height="7" rx="0.5" />
 
           {/* columns */}
-          <rect x="18" y="52" width="6" height="20" rx="0.5" />
-          <rect x="30" y="52" width="6" height="20" rx="0.5" />
-          <rect x="44" y="52" width="6" height="20" rx="0.5" />
-          <rect x="56" y="52" width="6" height="20" rx="0.5" />
+          <rect x="18" y="56" width="6" height="20" rx="0.5" />
+          <rect x="30" y="56" width="6" height="20" rx="0.5" />
+          <rect x="44" y="56" width="6" height="20" rx="0.5" />
+          <rect x="56" y="56" width="6" height="20" rx="0.5" />
 
           {/* base */}
-          <rect x="8" y="72" width="64" height="6" rx="0.5" />
+          <rect x="8" y="78" width="64" height="6" rx="0.5" />
         </svg>
 
         {/* state label */}
