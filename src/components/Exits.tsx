@@ -47,6 +47,22 @@ export function Exits({ state }: { state: State }) {
 
           {/* closed doors / barrier line */}
           <path d="M40 34 L40 64" strokeDasharray="3 2" opacity="0.6" />
+
+          {/* out of business sign */}
+          <rect x="12" y="41" width="56" height="12" rx="1" fill="var(--paper)" />
+          <text
+            x="40"
+            y="49.5"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill={accent}
+            fontSize="5.5"
+            fontFamily="var(--font-sans)"
+            fontWeight="600"
+            letterSpacing="0.2"
+          >
+            Out of business
+          </text>
         </svg>
 
         {/* state label */}
